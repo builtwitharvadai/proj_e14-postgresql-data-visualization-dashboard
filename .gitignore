@@ -28,3 +28,6 @@ coverage/
 .idea/
 *.swp
 *.swo
+
+# Claude CLI task files
+arvad_task_files/

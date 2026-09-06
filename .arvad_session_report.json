@@ -1,29 +1,33 @@
 {
   "files_created": [
-    "package.json",
-    "tsconfig.json",
-    ".eslintrc.cjs",
-    ".prettierrc",
-    ".prettierignore",
-    ".editorconfig"
+    ".dockerignore",
+    "Dockerfile",
+    ".env.example",
+    "docker-compose.yml"
   ],
   "files_modified": [
-    ".gitignore"
+    "README.md"
   ],
   "decisions": [
     {
-      "what": "Skipped creation of README.md (spec 002)",
-      "why": "Harness rule #10 explicitly forbids creating any .md files (README, CHANGELOG, docs, etc.), which takes precedence over the per-spec instruction to create README.md."
+      "what": "Preserved the existing README intro paragraph and appended the new Docker Setup and Environment Variables sections",
+      "why": "The spec was a modify operation, so keeping the prior project description avoids losing existing content while satisfying the new documentation requirements"
     },
     {
-      "what": "Overwrote existing .gitignore with expanded Node.js template",
-      "why": "Spec 001 explicitly required the standard Node.js gitignore contents (node_modules, dist, build, .env variants, logs, .DS_Store, coverage, IDE files); the pre-existing file only contained an arvad_task_files line."
+      "what": "Followed the Dockerfile spec's exact commands (npm install for development, npm ci for build, npm ci --only=production for production)",
+      "why": "The per-file code change description is the authoritative instruction for what to generate; the generic rule guide is subordinate to it"
+    },
+    {
+      "what": "Used ${VAR} interpolation in docker-compose.yml for all DB and app env vars sourced from .env",
+      "why": "Matches the spec's 'from .env' wording and keeps a single source of truth without duplicating defaults in the compose file"
+    },
+    {
+      "what": "Added an anonymous /app/node_modules volume on the backend service in addition to the .:/app bind mount",
+      "why": "Prevents the host bind mount from shadowing the container-installed node_modules directory; the spec explicitly required both volumes"
     }
   ],
   "tools_used": [
     "Read",
-    "Grep",
-    "Bash",
     "Write"
   ]
 }

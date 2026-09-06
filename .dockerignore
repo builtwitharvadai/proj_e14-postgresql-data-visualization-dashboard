@@ -1,0 +1,31 @@
+# Dependencies
+node_modules
+
+# Build artifacts
+dist
+
+# Logs
+npm-debug.log
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+*.md
+
+# IDE and editor files
+.vscode
+.idea
+
+# Test coverage
+coverage
+
+# OS files
+.DS_Store
