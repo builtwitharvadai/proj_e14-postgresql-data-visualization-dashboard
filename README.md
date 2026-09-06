@@ -1,0 +1,2 @@
+# proj_e14-postgresql-data-visualization-dashboard
+A web-based dashboard application that connects to a PostgreSQL database and visualizes data through interactive charts and graphs. The dashboard will provide real-time insights into database metrics and business data, enabling users to monitor key performance indicators and trends. The solution will feature a clean, intuitive interface with custom
